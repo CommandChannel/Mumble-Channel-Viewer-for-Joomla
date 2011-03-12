@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Mumble Channel Viewer</name>
+	<author>Doug Gilbert, Mike Johnson</author>
+	<creationDate>2011-03-07</creationDate>
+	<copyright>(c) 2011 Command Channel Corporation</copyright>
+	<authorEmail>mikej@commandchannel.com</authorEmail>
+	<authorUrl>http://commandchannel.com</authorUrl>
+	<version>1.0.0</version>
+	<description>Displays your Mumble server's channels and connected users using the Channel Viewer Protocol.</description>
+	<files>
+		<filename module="mod_mumbleChannelViewer">mod_mumbleChannelViewer.php</filename>
+		<filename>mod_mumbleChannelViewer.css</filename>
+		<filename>mumbleChannelViewer.php</filename>
+		<filename>index.html</filename>
+		<folder>images/</folder>
+	</files>
+  	<params>
+		<param type="spacer" default="&lt;b&gt;Mumble Server Variables&lt;b&gt;" />
+		<param name="jsonUri" type="text" default="" label="JSON URL" size="1024" description="The URL that will return information about your Mumble server in JSON format." />
+  	</params>
+</install>
+
