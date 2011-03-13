@@ -2,10 +2,12 @@
 <install type="module" version="1.5.0">
 	<name>Mumble Channel Viewer</name>
 	<author>Doug Gilbert, Mike Johnson</author>
-	<creationDate>Mar 2011</creationDate>
+	<creationDate>2011-03-13</creationDate>
 	<copyright>(c) 2011 Command Channel Corporation</copyright>
+	<license>GNU/GPLv2 http://www.gnu.org/licenses/gpl-2.0.html</license>
 	<authorEmail>mikej@commandchannel.com</authorEmail>
 	<authorUrl>http://commandchannel.com</authorUrl>
+	<releaseDate>2011-03-14</releaseDate>
 	<version>1.0.0</version>
 	<description>Displays your Mumble server's channels and connected users using the Channel Viewer Protocol.</description>
 	<files>
