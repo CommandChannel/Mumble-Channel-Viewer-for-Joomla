@@ -1,4 +1,4 @@
-#mumbleViewer { height: 300px; overflow-y: scroll; border: 1px solid #c0c0c0; }
+#mumbleViewer { height: 300px; overflow-y: scroll; border: 1px solid #c0c0c0; padding: 3px; }
 #mumbleViewer a, #mumbleViewer a:visited { color: #000; text-decoration: none; }
 #mumbleViewer a:hover { text-decoration: underline; }
 #mumbleViewer ul { list-style-type: none; margin: 0; padding: 0; }
