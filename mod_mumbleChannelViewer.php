@@ -12,12 +12,12 @@
 defined('_JEXEC') or die('Restricted Access');
 
 /*include the stylesheet*/
-$path =  JURI::base()."modules/mod_mumbleViewer/";
+$path =  JURI::base()."modules/mod_mumbleChannelViewer/";
 JHTML::stylesheet('mod_mumbleChannelViewer.css',$path);
 
 require_once( dirname(__FILE__).DS.'mumbleChannelViewer.php' );
 
 echo '<div id="mumbleViewer">';
-echo MumbleChannelViewer::render($params->get('jsonUri'), 'json');
+echo MumbleChannelViewer::render($params->get('dataUrl'), 'json');
 echo '</div>';
 ?>

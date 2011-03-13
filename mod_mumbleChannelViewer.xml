@@ -2,7 +2,7 @@
 <install type="module" version="1.5.0">
 	<name>Mumble Channel Viewer</name>
 	<author>Doug Gilbert, Mike Johnson</author>
-	<creationDate>2011-03-07</creationDate>
+	<creationDate>Mar 2011</creationDate>
 	<copyright>(c) 2011 Command Channel Corporation</copyright>
 	<authorEmail>mikej@commandchannel.com</authorEmail>
 	<authorUrl>http://commandchannel.com</authorUrl>
@@ -15,9 +15,23 @@
 		<filename>index.html</filename>
 		<folder>images/</folder>
 	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="dataFormat" type="radio" default="0" label="Data format">
+					<option value="0">JSON</option>
+					<option value="1">XML</option>
+				</field>
+				<field name="dataUrl" type="text" default="" size="70" label="URL" description="The URL that will return information about your Mumble server." />
+			</fieldset>
+		</fields>
+	</config>
   	<params>
-		<param type="spacer" default="&lt;b&gt;Mumble Server Variables&lt;b&gt;" />
-		<param name="jsonUri" type="text" default="" label="JSON URL" size="1024" description="The URL that will return information about your Mumble server in JSON format." />
+		<param name="dataFormat" type="radio" default="0" label="Data format">
+			<option value="0">JSON</option>
+			<option value="1">XML</option>
+		</param>
+		<param name="dataUrl" type="text" default="" label="URL" description="The URL that will return information about your Mumble server." />
   	</params>
 </install>
 
