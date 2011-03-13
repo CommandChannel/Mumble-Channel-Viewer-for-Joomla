@@ -22,9 +22,9 @@ class MumbleChannelViewer
 		if ($dataFormat == "json")
 			return self::renderJson($dataUri);
 		else if ($dataFormat == "xml")
-			die("The XML format is not supported yet.");
+			return "<div class='mumbleChannelViewer-error'>The XML format is not supported yet.</div>";
 		else
-			die("The data format {$dataFormat} is not supported.");
+			return "<div class='mumbleChannelViewer-error'>The data format {$dataFormat} is not supported.</div>";
 	}
 
 	/**
@@ -34,8 +34,21 @@ class MumbleChannelViewer
 	*/
 	protected static function renderJson($jsonUri)
 	{
-		$jsonRaw = file_get_contents($jsonUri);
+		$httpOptions = array(
+			'http' => array(
+				'method'		=> 'GET',
+				'timeout'		=> 10.0,
+				'user_agent'	=> 'Joomla! Mumble Channel Viewer 1.0'
+			)
+		);
+		$httpContext = stream_context_create($httpOptions);
+		$jsonRaw = file_get_contents($jsonUri, false, $httpContext);
+		if ($jsonRaw == false)
+			return "<div class='mumbleChannelViewer-error'>Unable to connect to the specified Mumble server.</div>";
+
 		$jsonDecoded = json_decode($jsonRaw, true);
+		if ($jsonDecoded == null)
+			return "<div class='mumbleChannelViewer-error'>Unable to parse the returned information as JSON.</div>";
 
 		return self::renderChannel($jsonDecoded["root"], true);
 	}

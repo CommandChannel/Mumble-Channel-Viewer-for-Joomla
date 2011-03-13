@@ -13,3 +13,4 @@
 #mumbleViewer span.mumbleChannelViewer-deafened { background-position: 0 -64px; }
 #mumbleViewer span.mumbleChannelViewer-selfMuted { background-position: 0 -80px; }
 #mumbleViewer span.mumbleChannelViewer-muted { background-position: 0 -112px;}
+.mumbleChannelViewer-error { background: #ffc url("images/exclamation.png") no-repeat 4px 5px; color: #000; border: 1px solid #f90; margin: 20px 10px; padding: 5px 5px 5px 25px; }
