@@ -19,7 +19,10 @@ require_once( dirname(__FILE__).DS.'mumbleChannelViewer.php' );
 
 $dataUrl = $params->get('dataUrl');
 if (!filter_var($dataUrl, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED))
-	die("A valid URL was not supplied.");
+{
+	JError::raiseWarning(500, JText::_("A valid URL was not supplied."));
+	return;
+}
 
 if ($params->get('dataFormat') == 0)
 	$dataFormat = "json";
