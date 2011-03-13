@@ -17,7 +17,16 @@ JHTML::stylesheet('mod_mumbleChannelViewer.css',$path);
 
 require_once( dirname(__FILE__).DS.'mumbleChannelViewer.php' );
 
+$dataUrl = $params->get('dataUrl');
+if (!filter_var($dataUrl, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED))
+	die("A valid URL was not supplied.");
+
+if ($params->get('dataFormat') == 0)
+	$dataFormat = "json";
+else
+	$dataFormat = "xml";
+
 echo '<div id="mumbleViewer">';
-echo MumbleChannelViewer::render($params->get('dataUrl'), 'json');
+echo MumbleChannelViewer::render($dataUrl, $dataFormat);
 echo '</div>';
 ?>
