@@ -1,7 +1,6 @@
 #mumbleViewer { height: 300px; overflow-y: scroll; border: 1px solid #c0c0c0; }
 #mumbleViewer a, #mumbleViewer a:visited { color: #000; text-decoration: none; }
 #mumbleViewer a:hover { text-decoration: underline; }
-#mumbleViewer ul img { float: right; padding-left: 7px; }
 #mumbleViewer ul { list-style-type: none; margin: 0; padding: 0; }
 #mumbleViewer ul ul { margin: 0 0 0 7px; padding: 0 0 0 7px; }
 #mumbleViewer li { padding-top: 3px; }
