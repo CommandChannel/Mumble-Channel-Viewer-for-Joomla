@@ -91,17 +91,17 @@ class MumbleChannelViewer
 	protected static function renderUser($user) {
 		$output = "<li>";
 		if ($user["userid"] > 0)
-			$output .= "<img src='modules/mod_mumbleViewer/images/authenticated.png' alt='Authenticated' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/authenticated.png' alt='Authenticated' />";
 		if ($user["suppress"])
-			$output .= "<img src='modules/mod_mumbleViewer/images/muted_suppressed.png' alt='Suppressed' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_suppressed.png' alt='Suppressed' />";
 		if ($user["selfDeaf"])
-			$output .= "<img src='modules/mod_mumbleViewer/images/deafened_self.png' alt='Self-Deafened' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/deafened_self.png' alt='Self-Deafened' />";
 		if ($user["deaf"])
-			$output .= "<img src='modules/mod_mumbleViewer/images/deafened_server.png' alt='Server-Deafened' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/deafened_server.png' alt='Server-Deafened' />";
 		if ($user["selfMute"])
-			$output .= "<img src='modules/mod_mumbleViewer/images/muted_self.png' alt='Self-Muted' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_self.png' alt='Self-Muted' />";
 		if ($user["mute"])
-			$output .= "<img src='modules/mod_mumbleViewer/images/muted_server.png' alt='Server-Muted' />";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_server.png' alt='Server-Muted' />";
 		$output .= "<span>{$user["name"]}</span></li>";
 
 		return $output;
