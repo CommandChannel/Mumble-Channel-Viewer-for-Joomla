@@ -14,7 +14,7 @@ class MumbleChannelViewer
 	 * @since 1.0
 	 * @todo Add XML format support and input validation.
 	 * @param string $dataUri URI that will return information about a Mumble server.
-	 * @param string $dataFormat The format the data will be in (i.e. xml or json). The default value is json.
+	 * @param string $dataFormat The format the data will be in (i.e. xml or json).
 	 * @return string An HTML unordered list containing all of the channels and users currently connected to the Mumble server.
 	*/
 	function render($dataUri, $dataFormat = "json")
@@ -90,7 +90,7 @@ class MumbleChannelViewer
 	*/
 	protected static function renderUser($user) {
 		$output = "<li>";
-		if ($user["userid"] > 0)
+		/*if ($user["userid"] > 0)
 			$output .= "<img src='modules/mod_mumbleChannelViewer/images/authenticated.png' alt='Authenticated' />";
 		if ($user["suppress"])
 			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_suppressed.png' alt='Suppressed' />";
@@ -101,8 +101,22 @@ class MumbleChannelViewer
 		if ($user["selfMute"])
 			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_self.png' alt='Self-Muted' />";
 		if ($user["mute"])
-			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_server.png' alt='Server-Muted' />";
-		$output .= "<span>{$user["name"]}</span></li>";
+			$output .= "<img src='modules/mod_mumbleChannelViewer/images/muted_server.png' alt='Server-Muted' />";*/
+		
+		
+		if ($user["userid"] > 0)
+			$output .= "<span class='mumbleChannelViewer-authenticated'>Authenticated</span>";
+		if ($user["suppress"])
+			$output .= "<span class='mumbleChannelViewer-suppressed.png'>Suppressed</span>";
+		if ($user["selfDeaf"])
+			$output .= "<span class='mumbleChannelViewer-selfDeafened'>Self-Deafened</span>";
+		if ($user["deaf"])
+			$output .= "<span class='mumbleChannelViewer-deafened'>Server-Deafened</span>";
+		if ($user["selfMute"])
+			$output .= "<span class='mumbleChannelViewer-selfMuted'>Self-Muted</span>";
+		if ($user["mute"])
+			$output .= "<span class='mumbleChannelViewer-muted'>Server-Muted</span>";
+		$output .= "<span class='mumbleChannelViewer-user'>{$user["name"]}</span></li>";
 
 		return $output;
 	}

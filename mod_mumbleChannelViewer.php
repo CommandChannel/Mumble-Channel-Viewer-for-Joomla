@@ -24,7 +24,7 @@ if (!filter_var($dataUrl, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED))
 	return;
 }
 
-if ($params->get('dataFormat') == 0)
+if ($params->get('dataFormat') != 1)
 	$dataFormat = "json";
 else
 	$dataFormat = "xml";
