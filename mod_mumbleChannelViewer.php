@@ -29,7 +29,9 @@ if ($params->get('dataFormat') != 1)
 else
 	$dataFormat = "xml";
 
+
+$cache = & JFactory::getCache();
 echo '<div id="mumbleViewer">';
-echo MumbleChannelViewer::render($dataUrl, $dataFormat);
+echo $cache->call( array( 'MumbleChannelViewer', 'render' ), $dataUrl, $dataFormat );
 echo '</div>';
 ?>
