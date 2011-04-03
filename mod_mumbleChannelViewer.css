@@ -5,7 +5,7 @@
 #mumbleViewer ul ul { margin: 0 0 0 7px; padding: 0 0 0 7px; }
 #mumbleViewer li { padding-top: 3px; }
 #mumbleViewer a, #mumbleViewer span { background: url('images/mumbleIcons.png') no-repeat left -32px; padding-left: 20px; display: block; height: 16px; overflow: hidden; }
-#mumbleViewer span { text-indent: -9999px; float: right; }
+#mumbleViewer span.mumbleChannelViewer-statusIcon { text-indent: -9999px; float: right; }
 #mumbleViewer span.mumbleChannelViewer-user { text-indent: 0; background-position: 0 -16px; float: none; }
 #mumbleViewer span.mumbleChannelViewer-authenticated { background-position: 0 0; }
 #mumbleViewer span.mumbleChannelViewer-suppressed { background-position: 0 -96px; }

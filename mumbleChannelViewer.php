@@ -17,7 +17,7 @@ class MumbleChannelViewer
 	 * @param string $dataFormat The format the data will be in (i.e. xml or json).
 	 * @return string An HTML unordered list containing all of the channels and users currently connected to the Mumble server.
 	*/
-	function render($dataUri, $dataFormat = "json")
+	static function render($dataUri, $dataFormat = "json")
 	{
 		if ($dataFormat == "json")
 			return self::renderJson($dataUri);
@@ -65,7 +65,11 @@ class MumbleChannelViewer
 		if ($renderUl)
 			$output .= "<ul>";
 
-		$output .= "<li><a href=\"{$currentChannel["x_connecturl"]}\">{$currentChannel["name"]}</a>";		// Start of the LI element for this channel
+		$output .= "<li>";		// Start of the LI element for this channel
+		if (isset($currentChannel["x_connecturl"]))
+			$output .= "<a href=\"{$currentChannel["x_connecturl"]}\">{$currentChannel["name"]}</a>";
+		else
+			$output .= "<span class='mumbleChannelViewer-channel'>{$currentChannel["name"]}</span>";
 
 		$subStarted = false;
 
@@ -105,17 +109,17 @@ class MumbleChannelViewer
 		$output = "<li>";
 
 		if ($user["userid"] > 0)
-			$output .= "<span class='mumbleChannelViewer-authenticated'>Authenticated</span>";
+			$output .= "<span class='mumbleChannelViewer-authenticated mumbleChannelViewer-statusIcon'>Authenticated</span>";
 		if ($user["suppress"])
-			$output .= "<span class='mumbleChannelViewer-suppressed.png'>Suppressed</span>";
+			$output .= "<span class='mumbleChannelViewer-suppressed mumbleChannelViewer-statusIcon'>Suppressed</span>";
 		if ($user["selfDeaf"])
-			$output .= "<span class='mumbleChannelViewer-selfDeafened'>Self-Deafened</span>";
+			$output .= "<span class='mumbleChannelViewer-selfDeafened mumbleChannelViewer-statusIcon'>Self-Deafened</span>";
 		if ($user["deaf"])
-			$output .= "<span class='mumbleChannelViewer-deafened'>Server-Deafened</span>";
+			$output .= "<span class='mumbleChannelViewer-deafened mumbleChannelViewer-statusIcon'>Server-Deafened</span>";
 		if ($user["selfMute"])
-			$output .= "<span class='mumbleChannelViewer-selfMuted'>Self-Muted</span>";
+			$output .= "<span class='mumbleChannelViewer-selfMuted mumbleChannelViewer-statusIcon'>Self-Muted</span>";
 		if ($user["mute"])
-			$output .= "<span class='mumbleChannelViewer-muted'>Server-Muted</span>";
+			$output .= "<span class='mumbleChannelViewer-muted mumbleChannelViewer-statusIcon'>Server-Muted</span>";
 		$output .= "<span class='mumbleChannelViewer-user'>{$user["name"]}</span></li>";
 
 		return $output;
